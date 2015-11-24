@@ -6,7 +6,7 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class newArray
+public class PartialArray
 {
     /** description of instance variable x (add comment for each instance variable) */
     private int[] values;
@@ -14,7 +14,7 @@ public class newArray
     /**
      * Default constructor for objects of class newArray
      */
-    public newArray()
+    public PartialArray()
     {
         // initialise instance variables
         values = new int[100];
@@ -33,16 +33,36 @@ public class newArray
     }
     public void insert( int pos, int value )
     {
-        if currentSize < this.values.length)
+        if (currentSize < this.values.length)
         {
+            if ((this.currentSize) == this.values.length)
+            {
+                this.growArray();
+            }
             currentSize++;
             for( int i = currentSize - 1; i > pos; i--)
             {
-                this.values[1] = this.value[i-1];
+                this.values[1] = this.values[i-1];
             }
-            this.values[pos] =
+            
+            this.values[pos] = value;
             
             
         }
     }    
+    public void swap (int posA, int posB)
+    {
+        int temp = this.values[ posA ];
+        this.values[ posA ] = this.values[ posB ];
+        this.values[ posB ] = temp;
+    }
+    public void growArray()
+    {
+        int[] newArray = new int [ this.currentSize * 2 ];
+        
+        for (int i = 0; i < this.currentSize;i++)
+        {
+            newArray[ i ] = this.values[ i ];
+        }
+    }   
 }
